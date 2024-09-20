@@ -1,0 +1,24 @@
+.Playlist {
+    width: 37%;
+    height: 800px;
+    background-color: #3A3959;
+    padding: 24px;
+}
+
+.Playlist-input {
+    appearance: none;
+    width: 100%;
+    font-size: 36px;
+    margin-bottom: 10px;
+    background: #3A3959;
+    color: #f4f4f4;
+    border: none;
+    border-bottom: 2px solid #f4f4f4;
+}
+
+button.Save {
+    height: 42px;
+    width: 180px;
+    padding: 1px 12px;
+    border-radius: 20px;
+}

@@ -1,0 +1,15 @@
+h2 {
+    color: #f4f4f4;
+    text-align: left;
+    margin: 0;
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.Search-results {
+    width: 50%;
+    height: 800px;
+    max-height: 800px;
+    background-color: #3A3959;
+    padding: 24px;
+}

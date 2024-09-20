@@ -1,0 +1,35 @@
+body,
+html,
+#root {
+  height: 100%;
+}
+
+html {
+  font-size: 18px;
+}
+
+h1 {
+  padding: 0.77rem 0;
+  margin: 0;
+  background-color: #A89AD9;
+  color: #D93D93;
+  font-size: 3rem;
+  font-weight: 700;
+  text-align: center;
+  line-height: 1;
+}
+
+.App {
+  height: 100%;
+  text-align: center;
+  padding: 0 17%;
+  background-color: #262626;
+}
+
+.App-playlist {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 50px;
+}
+
