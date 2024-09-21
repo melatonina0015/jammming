@@ -2,17 +2,36 @@ import React from 'react'
 import './Track.css'
 
 function Track(props) {
-    
-    return (
-      <div className="Track">
-        <img src={props.src} alt='alt'/>
-        <div className='Track-details'>
-            <h3>{props.title}</h3>
-            <p>{props.artist} | {props.album}</p>
-        </div>
-        <button className='Add-to-playlist'>+</button>
+  function handleAddTrack() {
+    props.onAdd(props.track)
+  }
+
+  function handleRemoveTrack() {
+    props.onRemove(props.track)
+  }
+
+  function renderButton() {
+    if(props.isRemoval) {
+      return(
+        <button className='Add-to-playlist' onClick={handleRemoveTrack}>-</button>
+      )
+    } else {
+      return(
+        <button className='Add-to-playlist' onClick={handleAddTrack}>+</button>
+      )
+    }
+  }
+
+  return (
+    <div className="Track">
+      <img src={props.track.src} alt='alt'/>
+      <div className='Track-details'>
+        <h3>{props.track.title}</h3>
+        <p>{props.track.artist} | {props.track.album}</p>
       </div>
-    )
+      {renderButton()}
+    </div>
+  )
 }
 
 export default Track;

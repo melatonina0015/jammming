@@ -7,11 +7,11 @@ function TrackList(props) {
             {props.tracks && props.tracks.map((track) => {
                 return (
                     <Track 
-                        src={track.src} 
                         key={track.id} 
-                        title={track.title} 
-                        artist={track.artist} 
-                        album={track.album}
+                        track={track}
+                        onAdd={props.onAdd}
+                        onRemove={props.onRemove}
+                        isRemoval={props.isRemoval}
                     />
                 )
          })}
