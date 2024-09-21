@@ -3,6 +3,7 @@ import SearchBar from '../SearchBar/SearchBar';
 import SearchResults from '../SearchResults/SearchResults';
 import Playlist from '../Playlist/Playlist';
 import { useState } from 'react';
+import { searchTracks } from '../../utils/Spotify';
 
 const tracks = [
   {
@@ -31,20 +32,23 @@ const tracks = [
 function App() {
   const [playlistName, setPlaylistName] = useState('New Playlist');
   const [playlistTracks, setPlaylistTracks] = useState([]);
+  const [tracksResults, setTracksResults] = useState([]);
 
   const handleNameChange = newPlaylistChange => setPlaylistName(newPlaylistChange);
+
+  const handleSearchTracks = searchTerm => {
+    searchTracks(searchTerm).then(setTracksResults);
+  }
 
   const handleAddTrackToPlaylist = track => {
     if(playlistTracks.some((savedTrack) => savedTrack.id === track.id)) {
       return;
     }
-
     setPlaylistTracks(prev => [...prev, track]);
   }
 
   const handleRemoveTrackFromPlaylist = track => {
     const filteredTracks = playlistTracks.filter(savedTrack => savedTrack.id !== track.id)
-
     setPlaylistTracks(filteredTracks);
   }
 
@@ -54,9 +58,9 @@ function App() {
         Jammming
       </h1>
       <div className="App">
-        <SearchBar />
+        <SearchBar onSearch={handleSearchTracks}/>
         <div className='App-playlist'>
-          <SearchResults searchResults={tracks} onAdd={handleAddTrackToPlaylist}/>
+          <SearchResults searchResults={tracksResults} onAdd={handleAddTrackToPlaylist}/>
           <Playlist 
             playlistName={playlistName}
             playlistTracks={playlistTracks}

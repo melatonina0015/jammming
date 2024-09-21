@@ -12,4 +12,5 @@ h2 {
     max-height: 800px;
     background-color: #3A3959;
     padding: 24px;
+    overflow-y:auto
 }
